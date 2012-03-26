@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  helper :all
+  helper_method :current_user_session, :current_user
 
   private
     def current_user_session
@@ -30,8 +32,8 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def store_location
-      session[:return_to] = request.request_uri
+ def store_location
+      session[:return_to] = request.fullpath
     end
     
     def redirect_back_or_default(default)
