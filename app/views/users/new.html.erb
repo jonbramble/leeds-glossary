@@ -1,0 +1,8 @@
+<h1>Register</h1>
+<h2>test</h2>
+<% form_for @user, :url => account_path do |f| %>
+  <%= field_set_tag nil, :class => 'input' do %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Register" %>
+ <% end %>
+<% end %>
