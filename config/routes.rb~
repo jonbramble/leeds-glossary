@@ -1,6 +1,6 @@
 LeedsGlossary::Application.routes.draw do
   resources :topics
-
+  resource :user_session
   resource :account, :controller => "users"
   resources :users
 
