@@ -3,12 +3,22 @@
 <head>
   <title>LeedsGlossary</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div id = "container">
+<header id="headspace">
+<div class = "container">
+ <nav>
+	
+ </nav>
+</div>
+
+</header>
+
+<div class = "container">
 <%= yield %>
 </div>
 

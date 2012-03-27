@@ -1,4 +1,9 @@
-
+<%= form.label "First Name" %><br />
+<%= form.text_field :fname %><br />
+<br />
+<%= form.label "Last Name" %><br />
+<%= form.text_field :lame %><br />
+<br />
 <%= form.label :email %><br />
 <%= form.text_field :email %><br />
 <br />

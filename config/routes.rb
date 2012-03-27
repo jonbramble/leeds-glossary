@@ -1,9 +1,9 @@
 LeedsGlossary::Application.routes.draw do
-  resources :subtopics
-
   resources :languages
 
-  resources :topics
+  resources :topics do 
+   resources :subtopics
+  end
   resource :user_session
   resource :account, :controller => "users"
   resources :users

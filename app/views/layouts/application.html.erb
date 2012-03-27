@@ -9,7 +9,16 @@
 </head>
 <body>
 
-<div id = "container">
+<header id="headspace">
+<div class = "container">
+ <nav>
+	<%= render :partial => "shared/navigation" %>
+ </nav>
+</div>
+
+</header>
+
+<div class = "container">
 <%= yield %>
 </div>
 

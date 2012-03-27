@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
- <ol>
+ <ul>
   <li>
    <%= f.label :name %>
    <%= f.text_field :name %>
@@ -27,6 +27,6 @@
    <%= f.submit %>
   </li>
 
- </ol>
+ </ul>
 <% end %>
 <% end %>

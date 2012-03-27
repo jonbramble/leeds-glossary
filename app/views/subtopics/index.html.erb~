@@ -9,7 +9,7 @@
     <th></th>
   </tr>
 
-<p><b>Topic:</b><%= @topic.name %></p>
+
 
 <% @subtopics.each do |subtopic| %>
   <tr>

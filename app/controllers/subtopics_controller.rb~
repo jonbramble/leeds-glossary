@@ -16,6 +16,7 @@ class SubtopicsController < ApplicationController
   # GET /subtopics/1
   # GET /subtopics/1.json
   def show
+    #@topic = Topic.find(params[:topic_id])
     @subtopic = Subtopic.find(params[:id])
 
     respond_to do |format|
@@ -27,6 +28,7 @@ class SubtopicsController < ApplicationController
   # GET /subtopics/new
   # GET /subtopics/new.json
   def new 
+    @topic = Topic.find(params[:topic_id])
     @subtopic = Subtopic.new
 
     respond_to do |format|
@@ -37,12 +39,14 @@ class SubtopicsController < ApplicationController
 
   # GET /subtopics/1/edit
   def edit
+    @topic = Topic.find(params[:topic_id])
     @subtopic = @topic.subtopics.find(params[:id])
   end
 
   # POST /subtopics
   # POST /subtopics.json
   def create
+    @topic = Topic.find(params[:topic_id])
     @subtopic = @topic.subtopics.new(params[:subtopic])
     @subtopic.user = current_user
 
@@ -60,6 +64,7 @@ class SubtopicsController < ApplicationController
   # PUT /subtopics/1
   # PUT /subtopics/1.json
   def update
+    @topic = Topic.find(params[:topic_id])
     @subtopic = Subtopic.find(params[:id])
 
     respond_to do |format|
@@ -76,6 +81,7 @@ class SubtopicsController < ApplicationController
   # DELETE /subtopics/1
   # DELETE /subtopics/1.json
   def destroy
+    @topic = Topic.find(params[:topic_id])
     @subtopic = @topic.subtopics.find(params[:id])
     @subtopic.destroy
 

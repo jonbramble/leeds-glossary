@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-<p><b>Topic: </b><%= @topic.name %></p>
+<p><b>Topic:</b><%= @topic.name %></p>
 <ol>
   <li>
     <%= f.label :name %><br />

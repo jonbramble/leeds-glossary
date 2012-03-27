@@ -17,4 +17,4 @@
 
 
 <%= link_to 'Edit', edit_topic_subtopic_path(@topic,@subtopic) %> |
-<%= link_to 'Back', topic_subtopics_path(@topic) %>
+<%= link_to 'Back', subtopics_path %>

@@ -1,6 +1,4 @@
-<h1>Editing subtopic</h1>
-
-<%= form_for([@topic, @subtopic]) do |f| %>
+<%= form_for([@topic, @topic.subtopics.build]) do |f| %>
   <% if @subtopic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@subtopic.errors.count, "error") %> prohibited this subtopic from being saved:</h2>
@@ -13,7 +11,7 @@
     </div>
   <% end %>
 
-<p><b>Topic: </b><%= @topic.name %></p>
+ <p> Topic: <%= @topic.name %>
 <ol>
   <li>
     <%= f.label :name %><br />
@@ -24,6 +22,3 @@
   </li>
 </ol>
 <% end %>
-
-<%= link_to 'Show', topic_subtopic_path(@topic,@subtopic) %> |
-<%= link_to 'Back', topic_subtopics_path(@topic) %>

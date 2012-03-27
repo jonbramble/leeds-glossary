@@ -1,8 +1,15 @@
 LeedsGlossary::Application.routes.draw do
+  resources :subtopics
+
+  resources :languages
+
   resources :topics
   resource :user_session
   resource :account, :controller => "users"
   resources :users
+
+  match 'login' => 'user_sessions#new'
+  match 'logout' => 'user_sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
