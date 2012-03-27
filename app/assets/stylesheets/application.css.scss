@@ -22,6 +22,11 @@ a:link, a:visited { text-decoration: none;}
  width: 950px;
  background: white;
  padding: 30px;
+ min-height: 750px;
+}
+
+#headspace .container {
+ min-height: 10px;
 }
 
 h1,h3 {
@@ -52,11 +57,17 @@ nav {
 }
 
 form {
-	width: 550px;
+	width: 500px;
+}
+
+form.new_entry {
+	float:left;
+	margin-left: 30px;
+	width: 350px;
 }
 
 
-table {
-	width: 550px;
-
+#entry_table{
+	float:left;
+	width: 500px;
 }

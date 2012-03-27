@@ -1,6 +1,6 @@
 <h1> Word Entry </h1>
 
-<table>
+<table id="entry_table">
   <tr>
     <th>Word</th>
     <th>Language</th>
@@ -10,10 +10,10 @@
 <p><b>Subtopic:</b><%= @subtopic.name %></p>
 
 <% @entries.each do |entry| %>
-  <tr>
+  <tr class='entry'>
     <td><%= entry.word %></td>
     <td><%= entry.language.name %></td>
-    <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), :class => 'delete_entry', :remote=> true, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -36,6 +36,9 @@
  
  <% end %>
 <% end %>
+
+
+
 
 
 

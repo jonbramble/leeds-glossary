@@ -22,7 +22,7 @@ class EntriesController < ApplicationController
    respond_to do |format|
 	 if @entry.save
         	#format.html { redirect_to(substance_hazardstatements_path(@substance), :notice => 'Hazard was successfully added.') }
-		format.js { render :json => [@entry.word,@entry.language.name,@subtopic.id]}
+		format.js { render :json => [@entry,@entry.language.name]}
          else
         	#format.html { render :action => "new" }
 		format.js
@@ -33,7 +33,7 @@ class EntriesController < ApplicationController
  end
 
  def destroy
-   @entry = @subtopic.entries.find(params[:id])
+   @entry = Entry.find(params[:id])
    @entry.delete
    
    respond_to do |format|
@@ -45,7 +45,7 @@ class EntriesController < ApplicationController
 
 private
  def get_subtopic
-	@subtopic = Subtopic.find(params[:subtopic_id])
+	@subtopic = Subtopic.find(params[:subtopic_id],:include => [:entries])
  end
 
 

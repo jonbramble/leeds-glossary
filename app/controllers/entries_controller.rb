@@ -4,7 +4,6 @@ class EntriesController < ApplicationController
  before_filter :get_subtopic
 
  def index
-   @entry = Entry.new
    @entries = @subtopic.entries
 
    respond_to do |format|
@@ -33,7 +32,7 @@ class EntriesController < ApplicationController
  end
 
  def destroy
-   @entry = @subtopic.entries.find(params[:id])
+   @entry = Entry.find(params[:id])
    @entry.delete
    
    respond_to do |format|
@@ -45,7 +44,7 @@ class EntriesController < ApplicationController
 
 private
  def get_subtopic
-	@subtopic = Subtopic.find(params[:subtopic_id])
+	@subtopic = Subtopic.find(params[:subtopic_id],:include => [:entries])
  end
 
 

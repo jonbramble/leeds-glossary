@@ -4,14 +4,14 @@
 
 
 addentry = (data) ->
- $('#entry_table').last().append("<tr class='entry'><td>"+data[0].word+"</td><td>"+data[1]+"</td><td><a href='/subtopics/"+data[0].subtopic_id+"/entries/"+data[0].id+"' class='delete_entry' data-confirm='Are you sure?' data-method='delete' data-remote='true' rel='nofollow'>Remove</a></td></tr>")
+ $('#entry_table').last().append("<tr class='entry'><td>"+data[0].word+"</td><td>"+data[1]+"</td><td><a href='/subtopics/"+data[0].subtopic_id+"/entries/"+data[0].id+"' class='delete_entry' data-confirm='Are you sure?' data-method='delete' data-remote='true' rel='nofollow'>Destroy</a></td></tr>")
  $('#entry_table tr').last().effect("highlight", {}, 3000)
- $('.delete_entry').bind('ajax:success', (event) -> $(this).closest('.entry').slideUp())
+ $('.delete_entry').bind('ajax:success', (event) -> $(this).closest('tr.entry').slideUp())
 
 $ ->
  $('.delete_entry')
  .bind('ajax:success', (event) -> $(this).closest('.entry').slideUp())
 
 $ ->
- $('#new_entry')
+ $('.new_entry')
  .bind('ajax:success', (event,data) -> addentry(data))

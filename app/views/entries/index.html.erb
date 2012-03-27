@@ -10,14 +10,13 @@
 <p><b>Subtopic:</b><%= @subtopic.name %></p>
 
 <% @entries.each do |entry| %>
-  <tr>
+  <tr class='entry'>
     <td><%= entry.word %></td>
     <td><%= entry.language.name %></td>
-    <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), :class => 'delete_entry', :remote=> true, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
 
 <%= form_for Entry.new, :url => subtopic_entries_path(@subtopic), :remote => true, :html => {'data-type' => 'json'}  do |f| %>
  <%= field_set_tag nil, :class => 'input' do %>
@@ -33,9 +32,11 @@
     <%= f.submit "Add" %>
   </li>	
   </ol>
- 
  <% end %>
 <% end %>
+
+
+
 
 
 
