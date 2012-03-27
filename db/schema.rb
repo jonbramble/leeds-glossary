@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326235325) do
+ActiveRecord::Schema.define(:version => 20120327133957) do
+
+  create_table "entries", :force => true do |t|
+    t.integer  "language_id"
+    t.string   "word"
+    t.integer  "subtopic_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "entries", ["language_id"], :name => "index_entries_on_language_id"
+  add_index "entries", ["subtopic_id"], :name => "index_entries_on_subtopic_id"
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -39,6 +50,18 @@ ActiveRecord::Schema.define(:version => 20120326235325) do
   end
 
   add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
+
+  create_table "translations", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "language_id"
+    t.string   "word"
+    t.string   "notes"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "translations", ["entry_id"], :name => "index_translations_on_entry_id"
+  add_index "translations", ["language_id"], :name => "index_translations_on_language_id"
 
   create_table "users", :force => true do |t|
     t.string   "fname"

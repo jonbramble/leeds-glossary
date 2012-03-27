@@ -1,9 +1,11 @@
 LeedsGlossary::Application.routes.draw do
   resources :translations
-
-  resources :entries
-
   resources :languages
+
+
+  resources :subtopics do
+   resources :entries
+  end
 
   resources :topics do 
    resources :subtopics

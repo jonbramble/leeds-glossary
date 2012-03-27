@@ -12,7 +12,7 @@
 <p><b>Topic:</b><%= @topic.name %></p>
 
 <% @subtopics.each do |subtopic| %>
-  <tr>
+  <tr class="entry">
     <td><%= subtopic.user.name %></td>
     <td><%= subtopic.name %></td>
     <td><%= link_to 'Show', topic_subtopic_path(@topic,subtopic) %></td>

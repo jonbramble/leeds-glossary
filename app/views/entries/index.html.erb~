@@ -1,0 +1,41 @@
+<h1> Word Entry </h1>
+
+<table>
+  <tr>
+    <th>Word</th>
+    <th>Language</th>
+    <th></th>
+  </tr>
+
+<p><b>Subtopic:</b><%= @subtopic.name %></p>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.word %></td>
+    <td><%= entry.language.name %></td>
+    <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= form_for Entry.new, :url => subtopic_entries_path(@subtopic), :remote => true, :html => {'data-type' => 'json'}  do |f| %>
+ <%= field_set_tag nil, :class => 'input' do %>
+  <ol>
+   <li>
+    <%= f.label "Add an Entry" %>
+    <%= f.text_field :word %>
+
+    <%= f.label "Language" %>
+    <%= collection_select(:entry,:language_id, Language.all,:id,:name) %>
+   </li>
+   <li>
+    <%= f.submit "Add" %>
+  </li>	
+  </ol>
+ 
+ <% end %>
+<% end %>
+
+
+

@@ -22,7 +22,7 @@ class EntriesController < ApplicationController
    respond_to do |format|
 	 if @entry.save
         	#format.html { redirect_to(substance_hazardstatements_path(@substance), :notice => 'Hazard was successfully added.') }
-		format.js { render :json => [@entry,@entry.language.name]}
+		format.js { render :json => [@entry.word,@entry.language.name,@subtopic.id]}
          else
         	#format.html { render :action => "new" }
 		format.js
