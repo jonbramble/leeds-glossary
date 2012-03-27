@@ -12,8 +12,8 @@
 <% @topics.each do |topic| %>
   <tr>
     <td><%= topic.name %></td>
-    <td><%= topic.user %></td>
-    <td><%= link_to 'Show', topic %></td>
+    <td><%= topic.user.email %></td>
+    <td><%= link_to 'Show Subtopics', topic_subtopics(topic) %></td>
     <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
     <td><%= link_to 'Destroy', topic, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

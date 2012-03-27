@@ -60,7 +60,7 @@ class SubtopicsController < ApplicationController
   # PUT /subtopics/1
   # PUT /subtopics/1.json
   def update
-    @subtopic = Subtopic.find(params[:id])
+    @subtopic = @topic.subtopics.find(params[:id])
 
     respond_to do |format|
       if @subtopic.update_attributes(params[:subtopic])
