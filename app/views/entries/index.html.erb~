@@ -18,22 +18,29 @@
 <% end %>
 </table>
 
-
-<%= form_for Entry.new, :url => subtopic_entries_path(@subtopic), :remote => true, :html => {'data-type' => 'json'}  do |f| %>
+<%= form_for (@entry), :url => subtopic_entries_path(@subtopic), :remote => true, :html => {'data-type' => 'json'}  do |f| %>
  <%= field_set_tag nil, :class => 'input' do %>
   <ol>
    <li>
     <%= f.label "Add an Entry" %>
     <%= f.text_field :word %>
-
     <%= f.label "Language" %>
     <%= collection_select(:entry,:language_id, Language.all,:id,:name) %>
-   </li>
-   <li>
-    <%= f.submit "Add" %>
   </li>	
+
+    <li>
+   <%= f.fields_for :translations do |ff| %>
+    <%= ff.label "Add a Translation" %>
+    <%= ff.text_field :word %>
+    <%= ff.label "Language" %>
+    <%= ff.collection_select(:language_id, Language.all,:id,:name) %>
+    <%end %>
+  </li>
+
+<li>
+	 <%= f.submit "Add" %>
+</li>
   </ol>
- 
  <% end %>
 <% end %>
 

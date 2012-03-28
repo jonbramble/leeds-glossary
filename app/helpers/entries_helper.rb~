@@ -1,6 +1,6 @@
 module EntriesHelper
  def setup_entry(entry)
-    2.times { entry.translations.build }
+    3.times { entry.translations.build }
     entry
   end
 

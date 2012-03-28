@@ -15,7 +15,7 @@
   <tr class="entry">
     <td><%= subtopic.user.name %></td>
     <td><%= subtopic.name %></td>
-    <td><%= link_to 'Show', topic_subtopic_path(@topic,subtopic) %></td>
+    <td><%= link_to 'Show Entries', subtopic_entries_path(subtopic) %></td>
     <td><%= link_to 'Edit', edit_topic_subtopic_path(@topic,subtopic) %></td>
     <td><%= link_to 'Destroy', topic_subtopic_path(@topic,subtopic), confirm: 'Are you sure?', method: :delete %></td>
   </tr>

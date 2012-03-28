@@ -4,6 +4,7 @@ class EntriesController < ApplicationController
  before_filter :get_subtopic
 
  def index
+   @entry = Entry.new
    @entries = @subtopic.entries
 
    respond_to do |format|
@@ -17,6 +18,7 @@ class EntriesController < ApplicationController
 
  def create
    @entry = @subtopic.entries.build(params[:entry])
+   #@translation = @entry.translations.build(params[:entry][:translation])
 
    respond_to do |format|
 	 if @entry.save
