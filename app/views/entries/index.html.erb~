@@ -18,7 +18,7 @@
 <% end %>
 </table>
 
-<%= form_for (@entry), :url => subtopic_entries_path(@subtopic), :remote => true, :html => {'data-type' => 'json'}  do |f| %>
+<%= form_for (setup_entry(@entry)), :url => subtopic_entries_path(@subtopic), :remote => true, :html => {'data-type' => 'json'}  do |f| %>
  <%= field_set_tag nil, :class => 'input' do %>
   <ol>
    <li>
