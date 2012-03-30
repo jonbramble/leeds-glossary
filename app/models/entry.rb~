@@ -1,6 +1,6 @@
 class Entry < ActiveRecord::Base
   belongs_to :language
   belongs_to :subtopic
-  has_one :translation
-  accepts_nested_attributes_for :translation
+  has_many :translations, :dependant => :destroy
+  accepts_nested_attributes_for :translations
 end

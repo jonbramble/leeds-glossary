@@ -33,12 +33,13 @@
   </li>	
 
     <li>
-   <%= f.fields_for :translations do |ff| %>
-    <%= ff.label "Add a Translation" %>
-    <%= ff.text_field :word %>
-    <%= ff.label "Language" %>
-    <%= ff.collection_select(:language_id, Language.all,:id,:name) %>
-    <%end %>
+   <div id="translations"></div>
+   <%#= f.fields_for :translations do |ff| %>
+    <%#= ff.label "Add a Translation" %>
+    <%#= ff.text_field :word %>
+    <%#= ff.label "Language" %>
+    <%#= ff.collection_select(:language_id, Language.all,:id,:name) %>
+    <%#end %>
   </li>
 
 <li>
