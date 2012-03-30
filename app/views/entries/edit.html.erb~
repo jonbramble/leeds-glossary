@@ -1,0 +1,8 @@
+<h1> Edit Entries and Translations </h1>
+
+<%="#{@entry.word}"%>
+
+<% @translations.each do |translation| %>
+<p><%= translation.word %></p>
+<p><%= translation.language.name %></p>
+<% end %>

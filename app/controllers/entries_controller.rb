@@ -6,7 +6,19 @@ class EntriesController < ApplicationController
  def index
    @entry = Entry.new
    @entries = @subtopic.entries
+   
 
+   respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @entries }
+    end
+
+ end
+
+ def edit
+   @entry = Entry.find(params[:id],:include => [:translations])
+   @translations = @entry.translations
+   
    respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @entries }

@@ -5,6 +5,8 @@
     <th>Word</th>
     <th>Language</th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <p><b>Subtopic:</b><%= @subtopic.name %></p>
@@ -13,6 +15,8 @@
   <tr class='entry'>
     <td><%= entry.word %></td>
     <td><%= entry.language.name %></td>
+    <td><%= entry.translations.map{|translation| translation.word} %></td>
+    <td><%= link_to 'Edit', edit_subtopic_entry_path(@subtopic,entry)%></td>
     <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), :class => 'delete_entry', :remote=> true, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -43,6 +47,10 @@
   </ol>
  <% end %>
 <% end %>
+
+<div>
+ 
+</div>
 
 
 
