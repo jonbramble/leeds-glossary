@@ -3,7 +3,7 @@
 <table id="entry_table">
   <tr>
     <th>Word</th>
-    <th>Language</th>
+    <th>Translations</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +14,6 @@
 <% @entries.each do |entry| %>
   <tr class='entry'>
     <td><%= entry.word %></td>
-    <td><%= entry.language.name %></td>
     <td><%= entry.translations.map{|translation| translation.word} %></td>
     <td><%= link_to 'Edit', edit_subtopic_entry_path(@subtopic,entry)%></td>
     <td><%= link_to 'Destroy', subtopic_entry_path(@subtopic,entry), :class => 'delete_entry', :remote=> true, confirm: 'Are you sure?', method: :delete %></td>
@@ -34,12 +33,12 @@
 
     <li>
    <div id="translations"></div>
-   <%#= f.fields_for :translations do |ff| %>
-    <%#= ff.label "Add a Translation" %>
-    <%#= ff.text_field :word %>
-    <%#= ff.label "Language" %>
-    <%#= ff.collection_select(:language_id, Language.all,:id,:name) %>
-    <%#end %>
+   <%= f.fields_for :translations do |ff| %>
+    <%= ff.label "Add a Translation" %>
+    <%= ff.text_field :word %>
+    <%= ff.label "Language" %>
+    <%= ff.collection_select(:language_id, Language.all,:id,:name) %>
+    <%end %>
   </li>
 
 <li>

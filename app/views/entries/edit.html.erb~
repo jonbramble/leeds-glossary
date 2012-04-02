@@ -1,8 +1,36 @@
 <h1> Edit Entries and Translations </h1>
 
-<%="#{@entry.word}"%>
+<p><%="#{@entry.english}"%><p>
 
 <% @translations.each do |translation| %>
 <p><%= translation.word %></p>
 <p><%= translation.language.name %></p>
+<% end %>
+
+
+<%= form_for (@entry), :url => subtopic_entries_path(@subtopic,@entry)  do |f| %>
+ <%= field_set_tag nil, :class => 'input' do %>
+  <ol>
+   <li>
+    <%= f.label "Add an Entry" %>
+    <%= f.text_field :word %>
+    <%= f.label "Language" %>
+    <%= collection_select(:entry,:language_id, Language.all,:id,:name) %>
+  </li>	
+
+    <li>
+   <div id="translations"></div>
+   <%= f.fields_for :translations do |ff| %>
+    <%= ff.label "Add a Translation" %>
+    <%= ff.text_field :word %>
+    <%= ff.label "Language" %>
+    <%= ff.collection_select(:language_id, Language.all,:id,:name) %>
+    <%end %>
+  </li>
+
+<li>
+	 <%= f.submit "Update" %>
+</li>
+  </ol>
+ <% end %>
 <% end %>

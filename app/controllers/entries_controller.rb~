@@ -16,13 +16,28 @@ class EntriesController < ApplicationController
  end
 
  def edit
-   @entry = Entry.find(params[:id],:include => [:translations,:languages])
+   @entry = Entry.includes(:language, :translations=>[:language]).find(params[:id]) # eager loading of translations and language
    @translations = @entry.translations
    
    respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @entries }
     end
+
+ end
+
+ def update
+   @entry = Entry.find(params[:id])
+   
+   respond_to do |format|
+	 if @entry.save
+        	format.html { redirect_to(subtopic_entries_path(@subtopic), :notice => 'Entry was updated') }
+		#format.js { render :json => [@entry,@entry.language.name]}
+         else
+        	format.html { render :action => "edit" }
+		#format.js
+         end
+   end
 
  end
 

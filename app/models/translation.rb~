@@ -1,0 +1,9 @@
+class Translation < ActiveRecord::Base
+  belongs_to :entry
+  belongs_to :language
+
+  def spanish
+	word
+  end
+
+end
